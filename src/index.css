@@ -1,102 +1,87 @@
-/* 画面全体のスタイル */
+/* 共通 */
+
 body, html {
   height: 100%;
   width: 100%;
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0; /* 微妙なグレーの背景色 */
 }
 
-
 #root {
-  max-width: 1300px; /* 最大幅を1600pxに拡大 */
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 16px;
   text-align: center;
 }
 
-
-.todo-container {
-  background-color: #d3d3d3;
-  padding: 2em;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%; /* 幅を100%に設定 */
-  max-width: 1200px; /* 最大幅を1200pxに設定 */
-  margin: 1em; /* 中央寄せ */
-  box-sizing: border-box; /* パディングとボーダーを含む */
-}
-
-
-select, input[type='text'], button[type='submit'] {
-  width: 95%;
-  margin: 0.5em 0;
-  padding: 0.75em; /* パディングを大きく */
-  font-size: 1.2em; /* フォントサイズを大きく */
+select,
+input[type='text'],
+button[type='submit'] {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 25px 0;
+  padding: 12px;
+  font-size: 19.2px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color: #525252;
 }
 
-
 button[type='submit'] {
-  background-color: #007BFF;
+  background-color: #f09405;
   color: #fff;
   border: none;
   cursor: pointer;
   height: 45px;
   width: 35%;
-  font-size: 1.2em;
-  padding: 0.5em 1em;
+  font-size: 19.2px;
+  padding: 8px 16px;
 }
-
 
 button[type='submit']:hover {
-  background-color: #0056b3;
+  background-color: #e18a04;
+  transition: 0.3s;
 }
-
 
 ul {
   list-style: none;
+  margin: 0;
   padding: 0;
-  width: 100%; /* 幅を100%に設定 */
+  width: 100%;
 }
-
 
 li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f9f9f9;/* 背景色を白に設定 */
-  padding: 1em; /* パディングを大きく */
-  margin: 1em 0; /* マージンを大きく */
+  background: #fff0e6;
+  padding: 16px;
+  margin: 25px 0 0 0;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* リストアイテムのシャドウを追加 */
-  width: 100%; /* 幅を100%に設定 */
-  box-sizing: border-box; /* パディングとボーダーを含む */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
-
 
 li input[type='text'] {
   flex-grow: 1;
-  margin-right: 1em;
-  border: 1px solid #ccc; /* ボーダーを追加 */
-  border-radius: 5px; /* ボーダーの角を丸く */
-  background: #fff; /* 背景色を白に設定 */
-  outline: none;
-  font-size: 1.2em; /* フォントサイズを大きく */
-  padding: 0.5em; /* パディングを追加 */
-  box-sizing: border-box; /* パディングとボーダーを含む */
+  width: auto;
+  margin-right: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 19.2px;
+  padding: 8px;
+  box-sizing: border-box;
 }
-
 
 li input[type='checkbox'] {
-  margin-right: 1em;
-  transform: scale(1.5); /* チェックボックスを大きく */
+  margin-right: 16px;
+  transform: scale(1.5);
 }
 
-
 li button {
-  padding: 0.3em 0.6em; 
+  padding: 5px 10px;
   background-color: #dc3545;
   color: #fff;
   border: none;
@@ -105,13 +90,176 @@ li button {
   width: 100px;
 }
 
-
 li button:hover {
   background-color: #c82333;
 }
 
-
 button[disabled] {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+/* 日時ごとのタスクの入力画面 */
+
+.todo-wrapper {
+  padding: 8px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
+
+/* 見出し 日時の表示 */
+
+.heading-date {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 25px 0;
+  padding: 10px 0;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ヘッダーボタンの共通スタイル */
+
+.header-btn button {
+  padding: 12px 24px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #f09405;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.header-btn button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.header-btn button:hover {
+  background-color: #e18a04;
+  transition: 0.3s;
+}
+
+/* 追加ボタン */
+
+.todo-wrapper .submit-btn {
+  margin: 5px 0;
+}
+
+/* 進捗率のセレクトボタン */
+
+.select-wrapper {
+  margin-right: 15px;
+  padding-bottom: 20px;
+}
+
+.select-label-progress {
+  font-size: 16px;
+  color: #525252;
+  text-align: center;
+}
+
+.select-wrapper select.select-progress {
+  font-size: 14px;
+  margin: 3px 0 0 0;
+}
+
+/* 開始日・完了予定日 */
+
+.todo-data-wrapper {
+  margin-right: 10px;
+  padding-bottom: 20px;
+}
+
+.todo-start-date {
+  font-size: 16px;
+  color: #525252;
+  text-align: center;
+}
+
+.todo-data-wrapper .start-date-input {
+  margin: 3px 0 0 0;
+  height: 30px;
+}
+
+.todo-end-date {
+  font-size: 16px;
+  color: #525252;
+  margin-top: 10px;
+}
+
+.todo-data-wrapper .end-date-input {
+  margin: 3px 0 0 0;
+  height: 30px;
+}
+
+li input.disabled-form {
+  background-color: #d8d8d8;
+}
+
+/* 編集・削除ボタン・物理削除ボタン */
+
+.edit-btn {
+  margin-right: 10px;
+  background-color: #316745;
+}
+
+.edit-btn:hover {
+  background-color: #285539;
+}
+
+.destroy-btn {
+  background-color: #dc3545;
+}
+
+.destroy-btn:hover {
+  background-color: #d32535;
+}
+
+.physical-destroy-btn {
+  padding: 12px 24px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #BE2130;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.physical-destroy-btn:hover {
+  background-color: #BA202F;
+}
+
+/* タスクの詳細画面 */
+
+.todo-detail-wrapper {
+  margin-top: 0;
+  padding: 20px;
+  background-color: #fff0e6;
+  box-shadow: none;
+}
+
+.todo-detail {
+  width: 100%;
+  height: 96px;
+  max-width: 1200px;
+  padding: 10px;
+}
+
+/* カレンダー画面 */
+
+.fc {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.fc .fc-today-button {
+  margin-right: 10px;
+}
+
+.fc .fc-today-button:disabled {
+  cursor: default;
+  pointer-events: auto;
 }
