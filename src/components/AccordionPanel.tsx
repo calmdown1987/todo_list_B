@@ -7,6 +7,7 @@ interface AccordionPanelProps {
 const AccordionPanel :React.FC<AccordionPanelProps> = ({
   isOpen
 }) => {
+  if (!isOpen) return null;
   return isOpen && (
     <li className="todo-detail-wrapper">
     <textarea
