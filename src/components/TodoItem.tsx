@@ -48,7 +48,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
         {/* タイトル入力 */}
         <TitleEditorField
           title={todo.title}
-          progress={todo.progress}
+          progress={todo.progress}  
           onEditTitle={(newTitle) =>
           onChangeTodoField(todo.id,"title",newTitle)  
           }
@@ -64,6 +64,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
         {/* 削除　復元ボタン */}
         <DeleteButton
           isDeleted={todo.delete_flg}
+          isCompleted={todo.completed_flg}
           onToggleDeleted={() =>onChangeTodoField(todo.id,"delete_flg",!todo.delete_flg)}
         />
       </li>
