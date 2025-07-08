@@ -10,14 +10,13 @@ function useTodos(dateStr?: string) {
 
   const { todos, setTodos } = useTodoStorage(currentDate);
   const { filter, setFilter, filteredTodos } = useTodoFilter(todos);
-  const { handleaddTodo, handleTodoField, removeDeleted } = useTodoHandler(
+  const { handleAddTodo, handleTodoField, removeDeleted } = useTodoHandler(
     setTodos,
     currentDate,
     displayDate
   );
 
   const { openIds, toggle } = useToggle();
-  const isFormDisabled = filter === "completed" || filter === "delete";
 
   return {
     formattedDate,
@@ -25,12 +24,11 @@ function useTodos(dateStr?: string) {
     filteredTodos,
     filter,
     setFilter,
-    handleaddTodo,
+    handleAddTodo,
     handleTodoField,
     removeDeleted,
     openIds,
-    toggle,
-    isFormDisabled
+    toggle
   };
 }
 

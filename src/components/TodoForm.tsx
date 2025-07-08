@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
 interface TodoFormProps {
-  onAdd: (title: string) => void;
+  onClickAdd: (title: string) => void;
 }
 
-const TodoForm: React.FC<TodoFormProps> = ({ onAdd }) => {
+const TodoForm: React.FC<TodoFormProps> = ({ onClickAdd }) => {
   const [text, setText] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmed = text.trim();
     if (!trimmed) return;
-    onAdd(trimmed);
+    onClickAdd(trimmed);
     setText('');
   };
 

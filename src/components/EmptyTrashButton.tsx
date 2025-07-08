@@ -1,12 +1,12 @@
 import React from "react";
 
 interface EmptyTrashButtonProps {
-  onEmptyButton: () => void;
+  onClickEmpty: () => void;
 }
 
-const EmptyTrashButton: React.FC<EmptyTrashButtonProps> = ({onEmptyButton}) => {
+const EmptyTrashButton: React.FC<EmptyTrashButtonProps> = ({onClickEmpty}) => {
   return (
-    <button className="physical-destroy-btn" onClick={onEmptyButton}>ごみ箱を空にする</button>
+    <button className="physical-destroy-btn" onClick={onClickEmpty}>ごみ箱を空にする</button>
   );
 }
 

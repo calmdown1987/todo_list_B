@@ -8,7 +8,7 @@ function useTodosHandler(
 ){
   const [nextId, setNextId] = useState(1);
 
-  const handleaddTodo = (title: string) => {
+  const handleAddTodo = (title: string) => {
     const trimmed = title.trim();
     if (!trimmed) return;
 
@@ -40,7 +40,7 @@ function useTodosHandler(
     setTodos(prev => prev.filter(todo => !todo.delete_flg));
   };
 
-  return {handleaddTodo, handleTodoField, removeDeleted};
+  return {handleAddTodo, handleTodoField, removeDeleted};
 }
 
 export default useTodosHandler;

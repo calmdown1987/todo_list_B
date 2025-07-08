@@ -12,10 +12,10 @@ export type Todo = {
   date: string;
   readonly id: number;
   completed_flg: boolean;
-  delete_flg: boolean,
+  delete_flg: boolean;
   start_date: Date | null;
   complete_date: Date | null;
-  progress: number | "" ;
+  progress: number | "";
 };
 
 const Todos: React.FC = () => {
@@ -27,40 +27,35 @@ const Todos: React.FC = () => {
     filteredTodos,
     filter,
     setFilter,
-    handleaddTodo,
+    handleAddTodo,
     handleTodoField,
     removeDeleted,
     openIds,
-    toggle,
-    isFormDisabled
+    toggle
   } = useTodos(dateStr);
 
   return (
     <div className="todo-wrapper">
       <DateHeader
-       title={formattedDate}
-       currentDateStr={currentDate}
+        title={formattedDate}
+        currentDateStr={currentDate}
       />
       <FilterSelect
         currentFilter={filter}
         onChangeFilter={setFilter}
       />
-      {filter === 'delete' ? (
-        <EmptyTrashButton onEmptyButton={removeDeleted} />
-      ) : (
-       filter !== 'completed' && (
-        <TodoForm onAdd={handleaddTodo} />
-        )
-      )}
+      {filter === 'delete'
+      ? <EmptyTrashButton onClickEmpty={removeDeleted} />
+      : filter !== 'completed' && <TodoForm onClickAdd={handleAddTodo} />}
       <ul>
-      <TodoList
-        todos={filteredTodos}
-        openTodoIds={openIds}
-        onToggleOpen={toggle}
-        onChangeTodoField={handleTodoField}
-      />
+        <TodoList
+          todos={filteredTodos}
+          openTodoIds={openIds}
+          onToggleOpen={toggle}
+          onChangeTodoField={handleTodoField}
+        />
       </ul>
-      </div>
+    </div>
   );
 };
 
