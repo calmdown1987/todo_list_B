@@ -3,13 +3,13 @@ import React from "react";
 interface EditorButtonProps {
   todoId: number;
   isOpen: boolean;
-  onToggleOpen: (id :number) => void;
+  onToggleOpen: (id: number) => void;
 }
 
-const EditorButton :React.FC<EditorButtonProps> = ({
+const EditorButton: React.FC<EditorButtonProps> = ({
   todoId,
   isOpen,
-  onToggleOpen
+  onToggleOpen,
 }) => {
   return (
     <button
