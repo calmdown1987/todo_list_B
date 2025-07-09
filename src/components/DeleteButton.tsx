@@ -9,7 +9,7 @@ interface DeleteButtonProps {
 const DeleteButton: React.FC<DeleteButtonProps> = ({
   onToggleDeleted,
   isDeleted,
-  isCompleted
+  isCompleted,
 }) => {
   return (
     <button
@@ -18,7 +18,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({
     >
       {isDeleted && isCompleted ? "復元" : "削除"}
     </button>
-  )
-}
+  );
+};
 
 export default DeleteButton;
