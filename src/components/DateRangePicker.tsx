@@ -12,7 +12,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   start_date,
   complete_date,
   onChangeStartDate,
-  onChangeCompleteDate
+  onChangeCompleteDate,
 }) => {
   return (
     <div className="todo-data-wrapper">
@@ -34,6 +34,6 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
       />
     </div>
   );
-}
+};
 
 export default DateRangePicker;
