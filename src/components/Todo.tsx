@@ -31,7 +31,7 @@ const Todos: React.FC = () => {
     handleTodoField,
     removeDeleted,
     openIds,
-    toggle
+    toggle,
   } = useTodos(dateStr);
 
   return (
