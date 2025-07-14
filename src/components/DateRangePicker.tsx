@@ -1,5 +1,5 @@
 import React from "react";
-import MyDatePicker from "./date";
+import MyDatePicker from "./Date";
 
 interface DateRangePickerProps {
   start_date: Date | null;
