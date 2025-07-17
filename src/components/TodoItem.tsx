@@ -18,6 +18,15 @@ interface TodoItemProps {
   ) => void;
 }
 
+// TodoItemコンポーネント
+// タスクを管理するための各種機能を表示する
+
+// - 進捗率プルダウン（TodoSelect）
+// - 開始/完了予定日ピッカー（DateRangePicker）
+// - タイトル編集フォーム（TitleEditorField）
+// - 編集ボタン（EditorButton）
+// - 削除/復元ボタン（DeleteButton）
+// - アコーディオン詳細表示パネル（AccordionPanel）
 const TodoItem: React.FC<TodoItemProps> = ({
   todo,
   isOpen,
@@ -62,7 +71,6 @@ const TodoItem: React.FC<TodoItemProps> = ({
         {/* 削除　復元ボタン */}
         <DeleteButton
           isDeleted={todo.delete_flg}
-          isCompleted={todo.completed_flg}
           onToggleDeleted={() => 
             onChangeTodoField(todo.id, "delete_flg", !todo.delete_flg)
           }
