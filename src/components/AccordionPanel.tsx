@@ -4,6 +4,8 @@ interface AccordionPanelProps {
   isOpen: boolean;
 }
 
+// AccordionPanel コンポーネント
+// タスクの詳細を入力するテキストエリアを表示
 const AccordionPanel: React.FC<AccordionPanelProps> = ({
   isOpen,
 }) => {

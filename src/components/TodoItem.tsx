@@ -18,15 +18,8 @@ interface TodoItemProps {
   ) => void;
 }
 
-// TodoItemコンポーネント
-// タスクを管理するための各種機能を表示する
-
-// - 進捗率プルダウン（TodoSelect）
-// - 開始/完了予定日ピッカー（DateRangePicker）
-// - タイトル編集フォーム（TitleEditorField）
-// - 編集ボタン（EditorButton）
-// - 削除/復元ボタン（DeleteButton）
-// - アコーディオン詳細表示パネル（AccordionPanel）
+// TodoItem コンポーネント
+// 単一のTodoを受け取り、編集・削除などのUIをまとめてレンダリングする
 const TodoItem: React.FC<TodoItemProps> = ({
   todo,
   isOpen,
@@ -47,11 +40,11 @@ const TodoItem: React.FC<TodoItemProps> = ({
         <DateRangePicker
           start_date={todo.start_date}
           complete_date={todo.complete_date}
-          onChangeStartDate={(startDate) =>
-            onChangeTodoField(todo.id, "start_date", startDate)
+          onChangeStartDate={(start_date) =>
+            onChangeTodoField(todo.id, "start_date", start_date)
           }
-          onChangeCompleteDate={(completeDate) =>
-            onChangeTodoField(todo.id, "complete_date", completeDate)
+          onChangeCompleteDate={(complete_date) =>
+            onChangeTodoField(todo.id, "complete_date", complete_date)
           }
         />
         {/* タイトル編集フォーム */}

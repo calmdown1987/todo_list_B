@@ -6,6 +6,9 @@ interface TitleEditorFieldProps {
   onEditTitle: (newTitle: string) => void;
 }
 
+// TitleEditorField コンポーネント
+// タスクのタイトル編集フォームを表示
+// 更新後に親側の更新処理(onEditTitle)を呼び出す
 const TitleEditorField: React.FC<TitleEditorFieldProps> = ({
   title,
   progress,

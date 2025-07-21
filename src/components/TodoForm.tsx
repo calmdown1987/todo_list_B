@@ -4,7 +4,12 @@ interface TodoFormProps {
   onClickAdd: (title: string) => void;
 }
 
-const TodoForm: React.FC<TodoFormProps> = ({ onClickAdd }) => {
+// TodoForm コンポーネント
+// 新規タスクの入力フォームと追加ボタンを表示
+// 送信時に親コンポーネントの新規タスク追加(onClickAdd)の処理を呼び出す
+const TodoForm: React.FC<TodoFormProps> = ({
+  onClickAdd, 
+}) => {
   const [text, setText] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -22,12 +27,12 @@ const TodoForm: React.FC<TodoFormProps> = ({ onClickAdd }) => {
         placeholder="タスクを入力"
         value={text}
         onChange={e => setText(e.target.value)}
-        />
-        <button className="submit-btn" type="submit">
-          追加
-        </button>
+      />
+      <button className="submit-btn" type="submit">
+        追加
+      </button>
     </form>
-  )
+  );
 }
 
 export default TodoForm;

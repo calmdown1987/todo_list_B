@@ -4,10 +4,16 @@ export type Filter = 'all' | 'completed' | 'unchecked' | 'delete';
 
 interface FilterChangeProps {
   currentFilter: Filter;
-  onChangeFilter: (newfilter:Filter)=> void;
+  onChangeFilter: (newfilter: Filter)=> void;
 }
 
-const FilterSelect:React.FC<FilterChangeProps> = ({currentFilter,onChangeFilter}) => {
+// FilterSelect コンポーネント
+// タスクをフィルタリングするセレクトボックスを表示
+// filter変更後に親側の更新処理(onChangeFilter)を呼び出す
+const FilterSelect: React.FC<FilterChangeProps> = ({
+  currentFilter,
+  onChangeFilter,
+}) => {
   return(
     <select
       value={currentFilter}

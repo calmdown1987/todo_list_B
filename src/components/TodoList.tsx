@@ -9,6 +9,9 @@ interface TodoListProps {
   onChangeTodoField: <K extends keyof Todo, V extends Todo[K]>(id: number, key: K, value: V) => void;
 }
 
+// TodoList コンポーネント
+// Todoの配列を受け取り、タスクを一覧表示
+// タスクの各項目は TodoItem コンポーネントでレンダリングする
 const TodoList: React.FC<TodoListProps> = ({
   todos,
   openTodoIds,

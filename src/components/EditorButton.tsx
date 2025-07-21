@@ -6,6 +6,9 @@ interface EditorButtonProps {
   onToggleOpen: (id: number) => void;
 }
 
+// EditorButton コンポーネント
+// アコーディオンの開閉ボタンを表示
+// ボタンのクリック時に親側の開閉処理(onToggleOpen)を呼び出す
 const EditorButton: React.FC<EditorButtonProps> = ({
   todoId,
   isOpen,
