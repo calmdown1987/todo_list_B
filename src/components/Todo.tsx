@@ -61,7 +61,7 @@ const Todos: React.FC = () => {
       <ul>
         {/* 登録されたタスクを一覧表示する */}
         <TodoList
-          todos={filteredTodos}
+          todos={filteredTodos()}
           openTodoIds={openIds}
           onToggleOpen={toggle}
           onChangeTodoField={handleTodoField}
