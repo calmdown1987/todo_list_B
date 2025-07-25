@@ -11,12 +11,17 @@ interface UseMonthTodosResult {
   handleDateClick: (arg: DateClickArg) => void;
 }
 
+// FullCalendar用の副作用とイベントハンドラ
+// 表示月のタスクをストレージから取得、eventsへ整形(副作用)
+// カレンダーの表示月が変わったとき更新された年月をセット(handleDatesSet)
+// クリックした日付の詳細ページへ移動(handleDateClick)
 function useMonthTodos(): UseMonthTodosResult {
   const navigate = useNavigate();
   const [yearMonth, setYearMonth] = useState<string>('');
   const [events, setEvents] = useState<EventInput[]>([]);
   const lastClickRef = useRef<{ date: string; time: number}>({date: '', time: 0});
 
+  // 表示月のタスクを取得
   useEffect(() => {
     if(!yearMonth) return;
     (async () => {
@@ -36,6 +41,7 @@ function useMonthTodos(): UseMonthTodosResult {
     })()
   }, [yearMonth])
 
+  // 表示月が切り替えられたら、更新された年月をセット
   const handleDatesSet = (arg: DatesSetArg) => {
     const firstOfMonth = arg.view.currentStart;
     const y = firstOfMonth.getFullYear();
@@ -43,6 +49,9 @@ function useMonthTodos(): UseMonthTodosResult {
     setYearMonth(`${y}-${m}`);
   };
 
+  // クリックした日付の詳細ページへ移動
+  // FullCalendar は dblclick を持たないため、
+  // 400ミリ秒 以内の連続クリックを擬似ダブルクリックとして扱う
   const handleDateClick = (arg: DateClickArg) => {
     const now = Date.now();
     if (

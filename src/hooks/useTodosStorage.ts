@@ -2,19 +2,23 @@ import { useState, useEffect } from "react";
 import localforage from "localforage";
 import type { Todo } from "../components/Todo";
 
+// 詳細画面の日付(currentDate)のタスクを
+// ストレージから取得、タスクの更新時に保存する
 function useTodosStorage(currentDate: string) {
-  const storagekey = `todos-${currentDate}`
+  const storageKey = `todos-${currentDate}`
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  // 取得
   useEffect(() => {
-    localforage.getItem<Todo[]>(storagekey).then(data => {
+    localforage.getItem<Todo[]>(storageKey).then(data => {
       setTodos(data ?? []);
     });
-  },[storagekey]);
+  },[storageKey]);
 
+  // 保存
   useEffect(() => {
-    localforage.setItem(storagekey,todos);
-  },[storagekey, todos]);
+    localforage.setItem(storageKey,todos);
+  },[storageKey, todos]);
 
   return {todos, setTodos};
 }
