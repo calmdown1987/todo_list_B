@@ -1,9 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import DateHeader from './DateHeader';
-import TodoForm from './TodoForm';
 import FilterSelect, {Filter} from './FilterSelect';
-import EmptyTrashButton from './EmptyTrashButton';
+import TodoAddOrRemove from './TodoAddOrRemove'
 import TodoList from './TodoList';
 import useTodos from '../hooks/useTodos';
 
@@ -51,15 +50,14 @@ const Todos: React.FC = () => {
         currentFilter={filter}
         onChangeFilter={setFilter}
       />
-      {/* filter==='delete' のときはゴミ箱用の削除ボタンを、
-          そうでなくかつ未完了タスクなら追加フォームを表示  */}
-      {filter === 'delete' ? (
-        <EmptyTrashButton onClickEmpty={removeDeleted} />
-      ) : (
-        filter !== 'completed' && <TodoForm onClickAdd={handleAddTodo} />
-      )}
+      {/* タスクの新規追加フォーム もしくは「ゴミ箱を空にする」ボタン */}
+      <TodoAddOrRemove
+        filter={filter}
+        onClickAdd={handleAddTodo}
+        onClickEmpty={removeDeleted}
+      />
       <ul>
-        {/* 登録されたタスクを一覧表示する */}
+        {/* 登録されたタスクを一覧表示 */}
         <TodoList
           todos={filteredTodos()}
           openTodoIds={openIds}
