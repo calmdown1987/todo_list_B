@@ -30,7 +30,7 @@ const CalendarPage: React.FC = () => {
       events={events}
       datesSet={handleDatesSet}
       dateClick={handleDateClick}
-      height="1200px"
+      height="1000px"
     />
   );
 };
